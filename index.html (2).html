@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Mastery Ultimate - Tables, Squares & Cubes Up To 50+ & Search</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #090d16; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white relative overflow-x-hidden pb-24 sm:pb-0">
+
+    <div class="absolute top-0 left-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/3 right-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <header class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-xl border-b border-slate-800/80 px-4 sm:px-6 py-3.5 flex items-center justify-between shadow-2xl">
+        <div class="flex items-center space-x-3 cursor-pointer group" onclick="switchTab('home')">
+            <div class="bg-gradient-to-tr from-indigo-600 via-purple-600 to-pink-500 p-2 sm:p-2.5 rounded-2xl shadow-lg shadow-indigo-500/25 flex items-center justify-center text-white">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6 animate-pulse" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            </div>
+            <div>
+                <h1 class="text-base sm:text-lg font-black tracking-tight bg-gradient-to-r from-white via-indigo-200 to-slate-400 bg-clip-text text-transparent">
+                    MathMaster<span class="text-indigo-500">.</span>Ultimate
+                </h1>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 font-medium">Tables, Squares & Cubes Up To 50+ & Search</p>
+            </div>
+        </div>
+
+        <!-- Desktop Navigation Buttons -->
+        <nav class="hidden sm:flex items-center space-x-2">
+            <button onclick="switchTab('home')" id="nav-home" class="px-4 py-2 rounded-2xl text-xs sm:text-sm font-semibold transition flex items-center space-x-2 bg-indigo-600 text-white shadow-lg shadow-indigo-600/30">
+                <span>Dashboard</span>
+            </button>
+            <button onclick="switchTab('study')" id="nav-study" class="px-4 py-2 rounded-2xl text-xs sm:text-sm font-semibold transition flex items-center space-x-2 text-slate-400 hover:text-white hover:bg-slate-800/60">
+                <span>Study Zone (30)</span>
+            </button>
+            <button onclick="switchTab('unlimited')" id="nav-unlimited" class="px-4 py-2 rounded-2xl text-xs sm:text-sm font-semibold transition flex items-center space-x-2 text-slate-400 hover:text-white hover:bg-slate-800/60">
+                <span>♾️ Unlimited & Search</span>
+            </button>
+            <button onclick="switchTab('practice')" id="nav-practice" class="px-4 py-2 rounded-2xl text-xs sm:text-sm font-semibold transition flex items-center space-x-2 text-slate-400 hover:text-white hover:bg-slate-800/60">
+                <span>MCQ Practice</span>
+            </button>
+            <button onclick="downloadAppFile()" class="px-3 py-2 rounded-2xl text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition flex items-center space-x-1 shadow-md">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                <span>Download App</span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="flex-1 max-w-7xl w-full mx-auto p-3 sm:p-8 z-10">
+
+        <!-- ================= HOME VIEW ================= -->
+        <div id="view-home" class="space-y-6 sm:space-y-8 animate-fadeIn">
+            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-950/60 via-slate-900/90 to-purple-950/50 border border-indigo-500/30 p-6 sm:p-12 shadow-2xl backdrop-blur-xl">
+                <div class="absolute -right-12 -bottom-12 w-64 h-64 sm:w-80 sm:h-80 bg-indigo-500/15 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="relative z-10 max-w-2xl">
+                    <span class="inline-flex items-center space-x-1.5 bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-[11px] sm:text-xs font-bold px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full uppercase tracking-wider mb-4 sm:mb-5">
+                        <span>⚡ Custom Range Practice & Infinite Search (e.g. 512)</span>
+                    </span>
+                    <h2 class="text-2xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+                        Conquer Tables, Squares & Cubes With <span class="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Custom Ranges & Search</span>
+                    </h2>
+                    <p class="text-slate-300 text-xs sm:text-base mt-3 sm:mt-4 leading-relaxed">
+                        Explore our Unlimited Search section where you can search any number (like 512) to see its table, square, and cube instantly, or configure exact starting and ending ranges for MCQs.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 sm:mt-8">
+                        <button onclick="switchTab('unlimited')" class="w-full sm:w-auto px-6 py-3.5 sm:px-7 sm:py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:opacity-95 text-white font-bold text-xs sm:text-sm rounded-2xl transition shadow-xl shadow-indigo-600/30 flex items-center justify-center space-x-2.5">
+                            <span>Explore Unlimited & Search</span>
+                        </button>
+                        <button onclick="switchTab('practice')" class="w-full sm:w-auto px-6 py-3.5 sm:px-7 sm:py-4 bg-slate-900/80 hover:bg-slate-800 border border-slate-700/80 text-white font-bold text-xs sm:text-sm rounded-2xl transition flex items-center justify-center space-x-2.5">
+                            <span>Custom MCQ Practice</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 sm:gap-6">
+                <div onclick="setStudySubTab('tables'); switchTab('study');" class="group bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800/80 hover:border-indigo-500/50 rounded-3xl p-6 transition duration-300 cursor-pointer shadow-xl backdrop-blur-md">
+                    <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-black text-xl mb-4">#</div>
+                    <h3 class="text-lg font-bold text-white group-hover:text-indigo-400 transition">Tables (Up to 30)</h3>
+                    <p class="text-slate-400 text-xs mt-2">Standard reference tables up to 30.</p>
+                </div>
+                <div onclick="setStudySubTab('squares'); switchTab('study');" class="group bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800/80 hover:border-purple-500/50 rounded-3xl p-6 transition duration-300 cursor-pointer shadow-xl backdrop-blur-md">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center font-black text-lg mb-4">x²</div>
+                    <h3 class="text-lg font-bold text-white group-hover:text-purple-400 transition">Squares (Vertical)</h3>
+                    <p class="text-slate-400 text-xs mt-2">Vertical list of squares up to 30.</p>
+                </div>
+                <div onclick="setStudySubTab('cubes'); switchTab('study');" class="group bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800/80 hover:border-emerald-500/50 rounded-3xl p-6 transition duration-300 cursor-pointer shadow-xl backdrop-blur-md">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-black text-lg mb-4">x³</div>
+                    <h3 class="text-lg font-bold text-white group-hover:text-emerald-400 transition">Cubes (Vertical)</h3>
+                    <p class="text-slate-400 text-xs mt-2">Vertical list of cubes up to 30.</p>
+                </div>
+                <div onclick="switchTab('unlimited')" class="group bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800/80 hover:border-pink-500/50 rounded-3xl p-6 transition duration-300 cursor-pointer shadow-xl backdrop-blur-md">
+                    <div class="w-12 h-12 rounded-2xl bg-pink-500/10 text-pink-400 flex items-center justify-center font-black text-lg mb-4">♾️</div>
+                    <h3 class="text-lg font-bold text-white group-hover:text-pink-400 transition">Unlimited Search</h3>
+                    <p class="text-slate-400 text-xs mt-2">Search any number (e.g. 512) instantly.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= STUDY VIEW (UP TO 30) ================= -->
+        <div id="view-study" class="space-y-5 sm:space-y-6 hidden animate-fadeIn">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-slate-900/80 p-4 sm:p-5 rounded-3xl border border-slate-800/80 backdrop-blur-md shadow-xl">
+                <div>
+                    <h2 class="text-lg sm:text-xl font-black text-white">Study Reference (Up to 30)</h2>
+                    <p class="text-[11px] sm:text-xs text-slate-400 mt-0.5">Vertical reference lists and direct MCQ launcher.</p>
+                </div>
+                <div class="flex items-center space-x-1.5 bg-slate-950 p-1.5 rounded-2xl border border-slate-800 w-full sm:w-auto">
+                    <button onclick="setStudySubTab('tables')" id="btn-st-tables" class="flex-1 sm:flex-none px-3.5 py-2 rounded-xl text-xs font-bold transition bg-indigo-600 text-white shadow-md">Tables</button>
+                    <button onclick="setStudySubTab('squares')" id="btn-st-squares" class="flex-1 sm:flex-none px-3.5 py-2 rounded-xl text-xs font-bold transition text-slate-400 hover:text-white">Squares</button>
+                    <button onclick="setStudySubTab('cubes')" id="btn-st-cubes" class="flex-1 sm:flex-none px-3.5 py-2 rounded-xl text-xs font-bold transition text-slate-400 hover:text-white">Cubes</button>
+                </div>
+            </div>
+            <div id="study-content-container"></div>
+        </div>
+
+        <!-- ================= UNLIMITED & SEARCH VIEW (UP TO 50 + DYNAMIC SEARCH) ================= -->
+        <div id="view-unlimited" class="space-y-6 hidden animate-fadeIn">
+            <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-xl">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-pink-400 bg-pink-500/10 px-3 py-1 rounded-full border border-pink-500/20">Unlimited Study Hub</span>
+                        <h2 class="text-2xl font-black text-white mt-2">Unlimited Tables, Squares & Cubes + Search</h2>
+                        <p class="text-xs text-slate-400 mt-1">Search any number (e.g. 15, 512, 1000) to find its table, square, or cube instantly.</p>
+                    </div>
+                    <div class="w-full sm:w-80">
+                        <input type="text" id="unlimited-search-input" oninput="handleUnlimitedSearch()" placeholder="Search (e.g. 18, 512, table 25)..." class="w-full bg-slate-950 border border-slate-800 rounded-2xl px-4 py-3 text-xs sm:text-sm text-white outline-none focus:border-pink-500 transition shadow-inner">
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-2 bg-slate-950 p-1.5 rounded-2xl border border-slate-800 w-fit mb-6 overflow-x-auto max-w-full">
+                    <button onclick="setUnlimitedSubTab('all')" id="ust-all" class="px-4 py-2 rounded-xl text-xs font-bold transition bg-pink-600 text-white shadow-md shrink-0">All Hub</button>
+                    <button onclick="setUnlimitedSubTab('tables')" id="ust-tables" class="px-4 py-2 rounded-xl text-xs font-bold transition text-slate-400 hover:text-white shrink-0">Tables (Up to 50)</button>
+                    <button onclick="setUnlimitedSubTab('squares')" id="ust-squares" class="px-4 py-2 rounded-xl text-xs font-bold transition text-slate-400 hover:text-white shrink-0">Squares (Up to 50)</button>
+                    <button onclick="setUnlimitedSubTab('cubes')" id="ust-cubes" class="px-4 py-2 rounded-xl text-xs font-bold transition text-slate-400 hover:text-white shrink-0">Cubes (Up to 50)</button>
+                </div>
+
+                <div id="unlimited-content-container" class="space-y-6"></div>
+            </div>
+        </div>
+
+        <!-- ================= PRACTICE CONFIG VIEW ================= -->
+        <div id="view-practice" class="max-w-xl mx-auto bg-slate-900/95 border border-slate-800/80 rounded-3xl p-5 sm:p-8 shadow-2xl backdrop-blur-xl hidden animate-fadeIn">
+            <div class="text-center mb-6">
+                <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 text-indigo-400 mx-auto flex items-center justify-center mb-3 shadow-inner text-2xl font-black">⚡</div>
+                <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight">MCQ Practice Configurator</h2>
+                <p class="text-[11px] sm:text-xs text-slate-400 mt-1">Set your custom range (e.g., from 5 to 50) for targeted quiz sessions.</p>
+            </div>
+
+            <div class="space-y-5">
+                <div>
+                    <label class="block text-[11px] font-bold text-slate-300 uppercase tracking-wider mb-2">Select Category</label>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                        <button onclick="selectPracticeType('table')" id="ptype-table" class="p-3.5 rounded-2xl border text-left transition flex flex-col justify-between bg-indigo-600/20 border-indigo-500 text-white shadow-lg">
+                            <span class="text-base font-black mb-1.5 text-indigo-400">#</span>
+                            <span class="text-[11px] font-bold">Tables</span>
+                        </button>
+                        <button onclick="selectPracticeType('square')" id="ptype-square" class="p-3.5 rounded-2xl border text-left transition flex flex-col justify-between bg-slate-950/60 border-slate-800/80 text-slate-400 hover:border-slate-700">
+                            <span class="text-base font-black mb-1.5 text-purple-400">x²</span>
+                            <span class="text-[11px] font-bold">Squares</span>
+                        </button>
+                        <button onclick="selectPracticeType('cube')" id="ptype-cube" class="p-3.5 rounded-2xl border text-left transition flex flex-col justify-between bg-slate-950/60 border-slate-800/80 text-slate-400 hover:border-slate-700">
+                            <span class="text-base font-black mb-1.5 text-emerald-400">x³</span>
+                            <span class="text-[11px] font-bold">Cubes</span>
+                        </button>
+                        <button onclick="selectPracticeType('mixed')" id="ptype-mixed" class="p-3.5 rounded-2xl border text-left transition flex flex-col justify-between bg-slate-950/60 border-slate-800/80 text-slate-400 hover:border-slate-700">
+                            <span class="text-base font-black mb-1.5 text-pink-400">⚡</span>
+                            <span class="text-[11px] font-bold">Mixed</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Custom Range Inputs -->
+                <div class="bg-slate-950/80 p-4 rounded-2xl border border-slate-800/80 space-y-3">
+                    <label class="block text-[11px] font-bold text-slate-300 uppercase tracking-wider">Custom Number Range Selection</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <span class="text-[10px] text-slate-400 block mb-1 font-semibold">Start Number (e.g. 1 or 10)</span>
+                            <input type="number" id="range-start" value="2" min="1" max="100" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs sm:text-sm text-white outline-none focus:border-indigo-500 font-mono">
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-slate-400 block mb-1 font-semibold">End Number (e.g. 30 or 50)</span>
+                            <input type="number" id="range-end" value="30" min="2" max="100" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs sm:text-sm text-white outline-none focus:border-indigo-500 font-mono">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[11px] font-bold text-slate-300 uppercase tracking-wider mb-2">Number of Questions</label>
+                    <div class="grid grid-cols-4 gap-2.5">
+                        <button onclick="selectQuestionCount('20')" id="qcount-20" class="py-3 rounded-2xl border text-[11px] font-bold transition bg-indigo-600 border-indigo-500 text-white shadow-md">20 Qs</button>
+                        <button onclick="selectQuestionCount('50')" id="qcount-50" class="py-3 rounded-2xl border text-[11px] font-bold transition bg-slate-950/60 border-slate-800/80 text-slate-400">50 Qs</button>
+                        <button onclick="selectQuestionCount('100')" id="qcount-100" class="py-3 rounded-2xl border text-[11px] font-bold transition bg-slate-950/60 border-slate-800/80 text-slate-400">100 Qs</button>
+                        <button onclick="selectQuestionCount('unlimited')" id="qcount-unlimited" class="py-3 rounded-2xl border text-[11px] font-bold transition bg-slate-950/60 border-slate-800/80 text-slate-400">♾️ Infinite</button>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[11px] font-bold text-slate-300 uppercase tracking-wider mb-2">Timer Per Question</label>
+                    <div class="grid grid-cols-4 gap-2.5">
+                        <button onclick="selectTimeLimit('none')" id="tlimit-none" class="py-3 rounded-2xl border text-[11px] font-bold transition bg-indigo-600 border-indigo-500 text-white shadow-md">Untimed</button>
+                        <button onclick="selectTimeLimit('5')" id="tlimit-5" class="py-3 rounded-2xl border text-[11px] font-bold transition bg-slate-950/60 border-slate-800/80 text-slate-400">5s</button>
+                        <button onclick="selectTimeLimit('10')" id="tlimit-10" class="py-3 rounded-2xl border text-[11px] font-bold transition bg-slate-950/60 border-slate-800/80 text-slate-400">10s</button>
+                        <button onclick="selectTimeLimit('15')" id="tlimit-15" class="py-3 rounded-2xl border text-[11px] font-bold transition bg-slate-950/60 border-slate-800/80 text-slate-400">15s</button>
+                    </div>
+                </div>
+
+                <button onclick="startPracticeQuiz()" class="w-full py-4 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:opacity-95 text-white font-bold text-xs sm:text-sm rounded-2xl transition shadow-xl shadow-indigo-600/30 flex items-center justify-center space-x-2.5 mt-4">
+                    <span>Start Custom Range MCQ Quiz</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ================= ACTIVE MCQ QUIZ VIEW ================= -->
+        <div id="view-quiz" class="max-w-xl mx-auto bg-slate-900/95 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl backdrop-blur-xl hidden animate-fadeIn">
+            <div class="flex items-center justify-between mb-6 pb-3.5 border-b border-slate-800 text-[11px] sm:text-xs">
+                <div class="flex items-center space-x-2">
+                    <span id="quiz-progress-badge" class="px-3 py-1 rounded-xl bg-indigo-500/10 text-indigo-400 font-bold border border-indigo-500/20">1/20</span>
+                    <span id="wrong-queue-badge" class="hidden px-2.5 py-1 rounded-xl bg-amber-500/10 text-amber-400 font-bold items-center space-x-1 border border-amber-500/20">
+                        <span>🔄 <span id="wrong-count-val">0</span> repeating</span>
+                    </span>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <span class="flex items-center space-x-1 text-orange-400 font-bold bg-orange-500/10 px-2.5 py-1 rounded-xl border border-orange-500/20">
+                        <span>🔥 <span id="quiz-streak-val">0</span></span>
+                    </span>
+                    <span id="quiz-timer-badge" class="hidden px-3 py-1 rounded-xl font-mono font-bold bg-slate-950 border border-slate-800 text-slate-300">
+                        ⏱️ <span id="quiz-timer-val">15</span>s
+                    </span>
+                </div>
+            </div>
+
+            <div class="text-center py-6 sm:py-8 bg-slate-950/60 rounded-3xl border border-slate-800/80 shadow-inner mb-6">
+                <span id="quiz-question-type-tag" class="text-[10px] sm:text-xs uppercase tracking-widest text-indigo-400 font-bold bg-indigo-500/10 px-3.5 py-1 rounded-full border border-indigo-500/20">TABLE</span>
+                <h2 id="quiz-question-text" class="text-4xl sm:text-6xl font-black text-white mt-4 tracking-tight font-mono">12 × 5 = ?</h2>
+            </div>
+
+            <div id="quiz-options-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+
+            <div id="quiz-error-feedback" class="hidden mt-6 p-5 rounded-3xl bg-rose-950/40 border border-rose-500/40 flex flex-col items-center space-y-4 backdrop-blur-md">
+                <div class="flex items-center space-x-2.5 text-rose-300 text-center">
+                    <span class="text-lg">❌</span>
+                    <span class="text-xs sm:text-sm font-bold">Incorrect! Correct answer is <span id="correct-answer-display" class="text-emerald-400 font-black text-lg underline ml-1 font-mono">60</span></span>
+                </div>
+                <button onclick="proceedToNextQuestion()" class="w-full py-3.5 bg-gradient-to-r from-indigo-600 to-purple-600 hover:opacity-95 text-white font-bold text-xs sm:text-sm rounded-2xl transition shadow-xl shadow-indigo-600/30 flex items-center justify-center space-x-2 cursor-pointer">
+                    <span>Next Question</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ================= RESULTS VIEW ================= -->
+        <div id="view-results" class="max-w-xl mx-auto bg-slate-900/95 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl text-center backdrop-blur-xl hidden animate-fadeIn space-y-6">
+            <div class="w-20 h-20 rounded-3xl bg-gradient-to-tr from-amber-500/20 to-indigo-500/20 text-indigo-400 mx-auto flex items-center justify-center shadow-2xl border border-amber-500/30 text-3xl">🏆</div>
+            <div>
+                <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">Session Completed!</h2>
+                <p class="text-xs text-slate-400 mt-1">Fantastic job pushing your calculation speed.</p>
+            </div>
+
+            <div class="grid grid-cols-3 gap-3">
+                <div class="bg-slate-950/80 p-4 rounded-2xl border border-slate-800/80 shadow-inner">
+                    <span class="text-[11px] text-slate-400 block font-medium">Score</span>
+                    <span id="res-score" class="text-xl sm:text-2xl font-black text-indigo-400 mt-1 block font-mono">20/20</span>
+                </div>
+                <div class="bg-slate-950/80 p-4 rounded-2xl border border-slate-800/80 shadow-inner">
+                    <span class="text-[11px] text-slate-400 block font-medium">Streak</span>
+                    <span id="res-streak" class="text-xl sm:text-2xl font-black text-orange-400 mt-1 block font-mono">🔥 15</span>
+                </div>
+                <div class="bg-slate-950/80 p-4 rounded-2xl border border-slate-800/80 shadow-inner">
+                    <span class="text-[11px] text-slate-400 block font-medium">Time</span>
+                    <span id="res-time" class="text-xl sm:text-2xl font-black text-emerald-400 mt-1 block font-mono">⏱️ 45s</span>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 pt-2">
+                <button onclick="switchTab('practice')" class="flex-1 py-3.5 bg-gradient-to-r from-indigo-600 to-purple-600 hover:opacity-95 text-white font-bold text-xs sm:text-sm rounded-2xl transition shadow-xl shadow-indigo-600/30">Practice Again</button>
+                <button onclick="switchTab('study')" class="flex-1 py-3.5 bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-white font-bold text-xs sm:text-sm rounded-2xl transition">Study Reference</button>
+            </div>
+        </div>
+
+    </main>
+
+    <div class="sm:hidden fixed bottom-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-xl border-t border-slate-800 px-4 py-3 flex items-center justify-around shadow-2xl">
+        <button onclick="switchTab('home')" class="flex flex-col items-center space-y-1 text-indigo-400">
+            <span class="text-xs">🏠</span>
+            <span class="text-[10px] font-bold">Home</span>
+        </button>
+        <button onclick="switchTab('study')" class="flex flex-col items-center space-y-1 text-slate-400">
+            <span class="text-xs">📖</span>
+            <span class="text-[10px] font-bold">Study</span>
+        </button>
+        <button onclick="switchTab('unlimited')" class="flex flex-col items-center space-y-1 text-slate-400">
+            <span class="text-xs">♾️</span>
+            <span class="text-[10px] font-bold">Unlimited</span>
+        </button>
+        <button onclick="switchTab('practice')" class="flex flex-col items-center space-y-1 text-slate-400">
+            <span class="text-xs">⚡</span>
+            <span class="text-[10px] font-bold">Practice</span>
+        </button>
+        <button onclick="downloadAppFile()" class="flex flex-col items-center space-y-1 text-emerald-400">
+            <span class="text-xs">💾</span>
+            <span class="text-[10px] font-bold">Download</span>
+        </button>
+    </div>
+
+    <script>
+        let currentTab = 'home';
+        let studySubTab = 'tables';
+        let unlimitedSubTab = 'all';
+        let practiceType = 'table';
+        let questionCount = '20';
+        let timeLimit = 'none';
+
+        let quizQuestions = [];
+        let currentIndex = 0;
+        let score = 0;
+        let streak = 0;
+        let maxStreak = 0;
+        let wrongQueue = [];
+        let isAnswerSubmitted = false;
+        let sessionTotalAnswered = 0;
+        let totalTimeSpent = 0;
+        let timerInterval = null;
+        let timeLeft = 15;
+
+        window.onload = function() {
+            renderStudyContent();
+            renderUnlimitedContent('');
+        };
+
+        function switchTab(tab) {
+            currentTab = tab;
+            document.getElementById('view-home').classList.add('hidden');
+            document.getElementById('view-study').classList.add('hidden');
+            document.getElementById('view-unlimited').classList.add('hidden');
+            document.getElementById('view-practice').classList.add('hidden');
+            document.getElementById('view-quiz').classList.add('hidden');
+            document.getElementById('view-results').classList.add('hidden');
+
+            if (tab === 'home') document.getElementById('view-home').classList.remove('hidden');
+            if (tab === 'study') {
+                document.getElementById('view-study').classList.remove('hidden');
+                renderStudyContent();
+            }
+            if (tab === 'unlimited') {
+                document.getElementById('view-unlimited').classList.remove('hidden');
+                renderUnlimitedContent('');
+            }
+            if (tab === 'practice') document.getElementById('view-practice').classList.remove('hidden');
+            if (tab === 'quiz') document.getElementById('view-quiz').classList.remove('hidden');
+            if (tab === 'results') document.getElementById('view-results').classList.remove('hidden');
+        }
+
+        function setStudySubTab(sub) {
+            studySubTab = sub;
+            document.getElementById('btn-st-tables').className = sub === 'tables' ? 'flex-1 sm:flex-none px-3.5 py-2 rounded-xl text-xs font-bold transition bg-indigo-600 text-white shadow-md' : 'flex-1 sm:flex-none px-3.5 py-2 rounded-xl text-xs font-bold transition text-slate-400 hover:text-white';
+            document.getElementById('btn-st-squares').className = sub === 'squares' ? 'flex-1 sm:flex-none px-3.5 py-2 rounded-xl text-xs font-bold transition bg-purple-600 text-white shadow-md' : 'flex-1 sm:flex-none px-3.5 py-2 rounded-xl text-xs font-bold transition text-slate-400 hover:text-white';
+            document.getElementById('btn-st-cubes').className = sub === 'cubes' ? 'flex-1 sm:flex-none px-3.5 py-2 rounded-xl text-xs font-bold transition bg-emerald-600 text-white shadow-md' : 'flex-1 sm:flex-none px-3.5 py-2 rounded-xl text-xs font-bold transition text-slate-400 hover:text-white';
+            renderStudyContent();
+        }
+
+        function setUnlimitedSubTab(sub) {
+            unlimitedSubTab = sub;
+            ['all', 'tables', 'squares', 'cubes'].forEach(s => {
+                const btn = document.getElementById('ust-' + s);
+                if (s === sub) {
+                    btn.className = "px-4 py-2 rounded-xl text-xs font-bold transition bg-pink-600 text-white shadow-md shrink-0";
+                } else {
+                    btn.className = "px-4 py-2 rounded-xl text-xs font-bold transition text-slate-400 hover:text-white shrink-0";
+                }
+            });
+            handleUnlimitedSearch();
+        }
+
+        function handleUnlimitedSearch() {
+            const query = document.getElementById('unlimited-search-input').value.toLowerCase().trim();
+            renderUnlimitedContent(query);
+        }
+
+        function renderUnlimitedContent(query) {
+            const container = document.getElementById('unlimited-content-container');
+            let html = '';
+
+            let searchedNum = parseInt(query);
+            let hasSpecificSearch = !isNaN(searchedNum) && searchedNum > 0 && query !== '';
+
+            if (hasSpecificSearch) {
+                let sq = searchedNum * searchedNum;
+                let cb = searchedNum * searchedNum * searchedNum;
+                html += `
+                <div class="bg-gradient-to-r from-pink-950/60 via-purple-950/60 to-indigo-950/60 border-2 border-pink-500/50 rounded-3xl p-6 shadow-2xl mb-8 animate-fadeIn">
+                    <div class="flex items-center justify-between mb-4 pb-3 border-b border-pink-500/30">
+                        <span class="text-base font-black text-pink-400">✨ Instant Search Results for: ${searchedNum}</span>
+                        <button onclick="quickStartPracticeCustom('table', ${searchedNum}, ${searchedNum})" class="text-xs bg-pink-500/20 text-pink-300 font-bold px-3 py-1.5 rounded-xl border border-pink-500/40">⚡ Test in Quiz</button>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="bg-slate-950/80 p-4 rounded-2xl border border-slate-800">
+                            <span class="text-[11px] text-slate-400 block font-bold uppercase">Square (${searchedNum}²)</span>
+                            <span class="text-xl font-black text-purple-400 font-mono mt-1 block">${sq.toLocaleString()}</span>
+                        </div>
+                        <div class="bg-slate-950/80 p-4 rounded-2xl border border-slate-800">
+                            <span class="text-[11px] text-slate-400 block font-bold uppercase">Cube (${searchedNum}³)</span>
+                            <span class="text-xl font-black text-emerald-400 font-mono mt-1 block">${cb.toLocaleString()}</span>
+                        </div>
+                        <div class="bg-slate-950/80 p-4 rounded-2xl border border-slate-800">
+                            <span class="text-[11px] text-slate-400 block font-bold uppercase">10× Table Preview</span>
+                            <span class="text-xs font-bold text-indigo-300 font-mono mt-1 block">${searchedNum} × 10 = ${(searchedNum * 10).toLocaleString()}</span>
+                        </div>
+                    </div>
+                </div>`;
+            }
+
+            if (unlimitedSubTab === 'all' || unlimitedSubTab === 'tables') {
+                html += `<div class="space-y-4"><h3 class="text-base font-black text-indigo-400 border-b border-slate-800 pb-2">Multiplication Tables (Up to 50+)</h3>`;
+                html += `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">`;
+                
+                let limit = hasSpecificSearch ? Math.max(50, searchedNum) : 50;
+                for (let num = 2; num <= limit; num++) {
+                    if (query && !num.toString().includes(query) && !(`table ${num}`).includes(query) && !hasSpecificSearch) continue;
+                    if (hasSpecificSearch && num !== searchedNum && !num.toString().includes(query)) continue;
+                    
+                    html += `
+                    <div class="bg-slate-950/70 border border-slate-800/80 rounded-3xl p-5 shadow-xl">
+                        <div class="flex items-center justify-between mb-3 pb-2 border-b border-slate-800">
+                            <span class="text-sm font-black text-indigo-400">Table of ${num}</span>
+                            <button onclick="quickStartPracticeCustom('table', ${num}, ${num})" class="text-[10px] bg-indigo-500/10 text-indigo-300 font-bold px-2.5 py-1 rounded-xl border border-indigo-500/30">⚡ Quiz</button>
+                        </div>
+                        <div class="space-y-1">`;
+                    for (let m = 1; m <= 10; m++) {
+                        html += `<div class="flex justify-between items-center text-xs px-2.5 py-1.5 rounded-xl bg-slate-900/60"><span class="text-slate-400">${num} × ${m}</span><span class="font-bold text-white font-mono">${(num * m).toLocaleString()}</span></div>`;
+                    }
+                    html += `</div></div>`;
+                }
+                html += `</div></div>`;
+            }
+
+            if (unlimitedSubTab === 'all' || unlimitedSubTab === 'squares') {
+                html += `<div class="space-y-4 pt-4"><h3 class="text-base font-black text-purple-400 border-b border-slate-800 pb-2">Squares Reference (Up to 50)</h3>`;
+                html += `<div class="max-w-2xl mx-auto space-y-2">`;
+                
+                let limit = hasSpecificSearch ? Math.max(50, searchedNum) : 50;
+                for (let num = 1; num <= limit; num++) {
+                    let sq = num * num;
+                    if (query && !num.toString().includes(query) && !sq.toString().includes(query) && !(`${num}²`).includes(query) && !hasSpecificSearch) continue;
+                    if (hasSpecificSearch && num !== searchedNum && !num.toString().includes(query) && !sq.toString().includes(query)) continue;
+                    
+                    html += `
+                    <div class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-950/60 border border-slate-800/80">
+                        <div class="flex items-center space-x-3">
+                            <span class="w-7 h-7 rounded-lg bg-purple-500/10 text-purple-400 font-black flex items-center justify-center text-xs">${num}</span>
+                            <span class="text-xs font-semibold text-slate-300 font-mono">${num}²</span>
+                        </div>
+                        <span class="text-sm font-black text-white font-mono">${sq.toLocaleString()}</span>
+                    </div>`;
+                }
+                html += `</div></div>`;
+            }
+
+            if (unlimitedSubTab === 'all' || unlimitedSubTab === 'cubes') {
+                html += `<div class="space-y-4 pt-4"><h3 class="text-base font-black text-emerald-400 border-b border-slate-800 pb-2">Cubes Reference (Up to 50)</h3>`;
+                html += `<div class="max-w-2xl mx-auto space-y-2">`;
+                
+                let limit = hasSpecificSearch ? Math.max(50, searchedNum) : 50;
+                for (let num = 1; num <= limit; num++) {
+                    let cb = num * num * num;
+                    if (query && !num.toString().includes(query) && !cb.toString().includes(query) && !(`${num}³`).includes(query) && !hasSpecificSearch) continue;
+                    if (hasSpecificSearch && num !== searchedNum && !num.toString().includes(query) && !cb.toString().includes(query)) continue;
+                    
+                    html += `
+                    <div class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-950/60 border border-slate-800/80">
+                        <div class="flex items-center space-x-3">
+                            <span class="w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-400 font-black flex items-center justify-center text-xs">${num}</span>
+                            <span class="text-xs font-semibold text-slate-300 font-mono">${num}³</span>
+                        </div>
+                        <span class="text-sm font-black text-white font-mono">${cb.toLocaleString()}</span>
+                    </div>`;
+                }
+                html += `</div></div>`;
+            }
+
+            container.innerHTML = html || '<p class="text-center text-slate-500 py-8">No results found matching your search.</p>';
+        }
+
+        function renderStudyContent() {
+            const container = document.getElementById('study-content-container');
+            if (studySubTab === 'tables') {
+                let html = '<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">';
+                for (let num = 2; num <= 30; num++) {
+                    html += `
+                    <div class="bg-slate-900/70 border border-slate-800/80 rounded-3xl p-5 sm:p-6 hover:border-indigo-500/50 transition shadow-xl backdrop-blur-md">
+                        <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-800/80">
+                            <span class="text-sm sm:text-base font-black text-indigo-400">Table of ${num}</span>
+                            <button onclick="quickStartPracticeCustom('table', ${num}, ${num})" class="text-[11px] sm:text-xs bg-indigo-500/10 hover:bg-indigo-500/25 text-indigo-300 font-bold px-3 py-1.5 rounded-xl transition flex items-center space-x-1.5 border border-indigo-500/30">
+                                <span>⚡ Practice</span>
+                            </button>
+                        </div>
+                        <div class="space-y-1.5">`;
+                    for (let m = 1; m <= 10; m++) {
+                        html += `
+                        <div class="flex justify-between items-center text-xs sm:text-sm px-3 py-2 rounded-xl bg-slate-950/60 hover:bg-slate-950 transition border border-slate-900">
+                            <span class="text-slate-400 font-medium">${num} × ${m}</span>
+                            <span class="font-bold text-white font-mono">= ${num * m}</span>
+                        </div>`;
+                    }
+                    html += `</div></div>`;
+                }
+                html += '</div>';
+                container.innerHTML = html;
+            } else if (studySubTab === 'squares') {
+                let html = `
+                <div class="max-w-2xl mx-auto bg-slate-900/70 border border-slate-800/80 rounded-3xl p-5 sm:p-8 shadow-xl backdrop-blur-md">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 pb-4 border-b border-slate-800/80">
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-white">Squares Reference (1 to 30)</h3>
+                            <p class="text-[11px] sm:text-xs text-slate-400 mt-0.5">Vertical lookup for square numbers.</p>
+                        </div>
+                        <button onclick="quickStartPracticeCustom('square', 1, 30)" class="w-full sm:w-auto px-4 py-2.5 bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs rounded-xl transition shadow-lg">⚡ Practice Squares MCQ</button>
+                    </div>
+                    <div class="flex flex-col space-y-2.5">`;
+                for (let num = 1; num <= 30; num++) {
+                    html += `
+                    <div class="flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80 hover:border-purple-500/40 transition">
+                        <div class="flex items-center space-x-3">
+                            <span class="w-8 h-8 rounded-xl bg-purple-500/10 text-purple-400 font-black flex items-center justify-center text-xs">${num}</span>
+                            <span class="text-sm font-semibold text-slate-300 font-mono">${num}²</span>
+                        </div>
+                        <span class="text-base font-black text-white font-mono">${num * num}</span>
+                    </div>`;
+                }
+                html += `</div></div>`;
+                container.innerHTML = html;
+            } else if (studySubTab === 'cubes') {
+                let html = `
+                <div class="max-w-2xl mx-auto bg-slate-900/70 border border-slate-800/80 rounded-3xl p-5 sm:p-8 shadow-xl backdrop-blur-md">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 pb-4 border-b border-slate-800/80">
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-white">Cubes Reference (1 to 30)</h3>
+                            <p class="text-[11px] sm:text-xs text-slate-400 mt-0.5">Vertical lookup for cubic numbers.</p>
+                        </div>
+                        <button onclick="quickStartPracticeCustom('cube', 1, 30)" class="w-full sm:w-auto px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl transition shadow-lg">⚡ Practice Cubes MCQ</button>
+                    </div>
+                    <div class="flex flex-col space-y-2.5">`;
+                for (let num = 1; num <= 30; num++) {
+                    html += `
+                    <div class="flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80 hover:border-emerald-500/40 transition">
+                        <div class="flex items-center space-x-3">
+                            <span class="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-400 font-black flex items-center justify-center text-xs">${num}</span>
+                            <span class="text-sm font-semibold text-slate-300 font-mono">${num}³</span>
+                        </div>
+                        <span class="text-base font-black text-white font-mono">${num * num * num}</span>
+                    </div>`;
+                }
+                html += `</div></div>`;
+                container.innerHTML = html;
+            }
+        }
+
+        function selectPracticeType(type) {
+            practiceType = type;
+            ['table', 'square', 'cube', 'mixed'].forEach(t => {
+                const btn = document.getElementById('ptype-' + t);
+                if (t === type) {
+                    btn.className = "p-3.5 rounded-2xl border text-left transition flex flex-col justify-between bg-indigo-600/20 border-indigo-500 text-white shadow-lg";
+                } else {
+                    btn.className = "p-3.5 rounded-2xl border text-left transition flex flex-col justify-between bg-slate-950/60 border-slate-800/80 text-slate-400 hover:border-slate-700";
+                }
+            });
+        }
+
+        function selectQuestionCount(cnt) {
+            questionCount = cnt;
+            ['20', '50', '100', 'unlimited'].forEach(c => {
+                const btn = document.getElementById('qcount-' + c);
+                if (c === cnt) {
+                    btn.className = "py-3 rounded-2xl border text-[11px] font-bold transition bg-indigo-600 border-indigo-500 text-white shadow-md";
+                } else {
+                    btn.className = "py-3 rounded-2xl border text-[11px] font-bold transition bg-slate-950/60 border-slate-800/80 text-slate-400";
+                }
+            });
+        }
+
+        function selectTimeLimit(limit) {
+            timeLimit = limit;
+            ['none', '5', '10', '15'].forEach(l => {
+                const btn = document.getElementById('tlimit-' + l);
+                if (l === limit) {
+                    btn.className = "py-3 rounded-2xl border text-[11px] font-bold transition bg-indigo-600 border-indigo-500 text-white shadow-md";
+                } else {
+                    btn.className = "py-3 rounded-2xl border text-[11px] font-bold transition bg-slate-950/60 border-slate-800/80 text-slate-400";
+                }
+            });
+        }
+
+        function quickStartPracticeCustom(type, start, end) {
+            practiceType = type;
+            document.getElementById('range-start').value = start;
+            document.getElementById('range-end').value = end;
+            startPracticeQuiz();
+        }
+
+        function generateSingleQuestion() {
+            let type = practiceType;
+            if (type === 'mixed') {
+                const types = ['table', 'square', 'cube'];
+                type = types[Math.floor(Math.random() * types.length)];
+            }
+
+            const startRange = parseInt(document.getElementById('range-start').value) || 2;
+            const endRange = parseInt(document.getElementById('range-end').value) || 30;
+            const minNum = Math.min(startRange, endRange);
+            const maxNum = Math.max(startRange, endRange);
+
+            let num1, num2, correctAnswer, questionText, hint;
+
+            if (type === 'table') {
+                num1 = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+                num2 = Math.floor(Math.random() * 10) + 1;
+                correctAnswer = num1 * num2;
+                questionText = `${num1} × ${num2} = ?`;
+                hint = `Table of ${num1}`;
+            } else if (type === 'square') {
+                num1 = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+                correctAnswer = num1 * num1;
+                questionText = `${num1}² = ?`;
+                hint = `${num1} multiplied by itself`;
+            } else if (type === 'cube') {
+                num1 = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+                correctAnswer = num1 * num1 * num1;
+                questionText = `${num1}³ = ?`;
+                hint = `${num1} multiplied three times`;
+            }
+
+            const optionsSet = new Set([correctAnswer]);
+            while (optionsSet.size < 4) {
+                let offset = (Math.floor(Math.random() * 10) + 1) * (Math.random() > 0.5 ? 1 : -1) * (type === 'table' ? num1 : 4);
+                let fake = correctAnswer + offset;
+                if (fake > 0 && fake !== correctAnswer) optionsSet.add(fake);
+                else optionsSet.add(correctAnswer + Math.floor(Math.random() * 20) + 1);
+            }
+
+            const options = Array.from(optionsSet).sort(() => Math.random() - 0.5);
+
+            return { type, questionText, hint, correctAnswer, options };
+        }
+
+        function startPracticeQuiz() {
+            quizQuestions = [];
+            const count = questionCount === 'unlimited' ? 20 : parseInt(questionCount);
+            for (let i = 0; i < count; i++) {
+                quizQuestions.push(generateSingleQuestion());
+            }
+
+            currentIndex = 0;
+            score = 0;
+            streak = 0;
+            maxStreak = 0;
+            wrongQueue = [];
+            sessionTotalAnswered = 0;
+            totalTimeSpent = 0;
+            isAnswerSubmitted = false;
+
+            switchTab('quiz');
+            loadCurrentQuestion();
+            startTimer();
+        }
+
+        function startTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            if (timeLimit === 'none') {
+                document.getElementById('quiz-timer-badge').classList.add('hidden');
+                return;
+            }
+            document.getElementById('quiz-timer-badge').classList.remove('hidden');
+            timeLeft = parseInt(timeLimit);
+            document.getElementById('quiz-timer-val').innerText = timeLeft;
+
+            timerInterval = setInterval(() => {
+                totalTimeSpent++;
+                if (!isAnswerSubmitted) {
+                    timeLeft--;
+                    document.getElementById('quiz-timer-val').innerText = timeLeft;
+                    if (timeLeft <= 0) {
+                        handleTimeOut();
+                    }
+                }
+            }, 1000);
+        }
+
+        function handleTimeOut() {
+            if (isAnswerSubmitted) return;
+            isAnswerSubmitted = true;
+            streak = 0;
+            document.getElementById('quiz-streak-val').innerText = streak;
+            const currentQ = quizQuestions[currentIndex];
+            wrongQueue.push(currentQ);
+            updateWrongQueueBadge();
+
+            document.getElementById('correct-answer-display').innerText = currentQ.correctAnswer;
+            document.getElementById('quiz-error-feedback').classList.remove('hidden');
+        }
+
+        function loadCurrentQuestion() {
+            isAnswerSubmitted = false;
+            document.getElementById('quiz-error-feedback').classList.add('hidden');
+            
+            if (currentIndex >= quizQuestions.length && wrongQueue.length > 0) {
+                quizQuestions = [...wrongQueue];
+                wrongQueue = [];
+                currentIndex = 0;
+                updateWrongQueueBadge();
+            }
+
+            if (currentIndex >= quizQuestions.length) {
+                finishQuiz();
+                return;
+            }
+
+            const q = quizQuestions[currentIndex];
+            document.getElementById('quiz-question-type-tag').innerText = q.type.toUpperCase() + ' • ' + q.hint;
+            document.getElementById('quiz-question-text').innerText = q.questionText;
+            document.getElementById('quiz-progress-badge').innerText = questionCount === 'unlimited' ? `#${sessionTotalAnswered + 1}` : `${currentIndex + 1}/${quizQuestions.length}`;
+            document.getElementById('quiz-streak-val').innerText = streak;
+
+            const grid = document.getElementById('quiz-options-grid');
+            let html = '';
+            q.options.forEach((opt, idx) => {
+                html += `
+                <button onclick="handleOptionClick(${opt})" id="opt-btn-${idx}" class="p-4 sm:p-5 rounded-2xl border-2 text-xl sm:text-2xl font-black transition flex items-center justify-between bg-slate-950/80 border-slate-800 text-white hover:border-indigo-500 hover:bg-slate-900 shadow-md">
+                    <span class="text-[10px] text-slate-500 uppercase font-mono font-bold">Opt ${String.fromCharCode(65 + idx)}</span>
+                    <span class="font-mono">${opt}</span>
+                    <span class="w-4"></span>
+                </button>`;
+            });
+            grid.innerHTML = html;
+            startTimer();
+        }
+
+        function handleOptionClick(selectedOpt) {
+            if (isAnswerSubmitted) return;
+            const q = quizQuestions[currentIndex];
+            sessionTotalAnswered++;
+            const isCorrect = selectedOpt === q.correctAnswer;
+
+            if (isCorrect) {
+                score++;
+                streak++;
+                if (streak > maxStreak) maxStreak = streak;
+                document.getElementById('quiz-streak-val').innerText = streak;
+
+                setTimeout(() => {
+                    currentIndex++;
+                    loadCurrentQuestion();
+                }, 180);
+            } else {
+                isAnswerSubmitted = true;
+                streak = 0;
+                document.getElementById('quiz-streak-val').innerText = streak;
+                wrongQueue.push(q);
+                updateWrongQueueBadge();
+
+                document.getElementById('correct-answer-display').innerText = q.correctAnswer;
+                document.getElementById('quiz-error-feedback').classList.remove('hidden');
+            }
+        }
+
+        function proceedToNextQuestion() {
+            currentIndex++;
+            loadCurrentQuestion();
+        }
+
+        function updateWrongQueueBadge() {
+            const badge = document.getElementById('wrong-queue-badge');
+            if (wrongQueue.length > 0) {
+                badge.classList.remove('hidden');
+                badge.classList.add('flex');
+                document.getElementById('wrong-count-val').innerText = wrongQueue.length;
+            } else {
+                badge.classList.add('hidden');
+                badge.classList.remove('flex');
+            }
+        }
+
+        function finishQuiz() {
+            if (timerInterval) clearInterval(timerInterval);
+            switchTab('results');
+            document.getElementById('res-score').innerText = `${score}/${quizQuestions.length}`;
+            document.getElementById('res-streak').innerText = `🔥 ${maxStreak}`;
+            document.getElementById('res-time').innerText = `⏱️ ${totalTimeSpent || 10}s`;
+        }
+
+        function downloadAppFile() {
+            const htmlContent = document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'math-mastery-ultimate.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
